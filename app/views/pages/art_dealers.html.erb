@@ -1,0 +1,252 @@
+<h1>Les trafiquant d’art</h1>
+
+<p>Placez les villes sur la carte et grasse au programme retrouve le centres des clusters.</p>
+
+<div class="d-flex justify-content-center">
+  <button class="btn btn-success" onclick="button()">Iterate Algorithm</button><br>
+  <button class="btn btn-danger" onclick="initialise()">Re-Initialise</button><br>
+</div>
+
+<div class="d-flex justify-content-around">
+  <div id="hunt-map">
+    <div id='hunt-clusturing'></div>
+  </div>
+
+  <div id="db-data-hunt">
+    <iframe src="<%= Result::DB_URL %>"></iframe>
+  </div>
+</div>
+
+<%= render "components/form" %>
+
+
+
+<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+<script type="text/javascript">
+  var data = [];
+  var centres = [];
+  var vertices;
+
+  var color = d3.scale.category10();
+
+  var xPadding = 0;
+  var yPadding = 0;
+
+  var width = 500;
+  var height = 500;
+
+  var innerWidth = width - 2*xPadding;
+  var innerHeight = height - 2*yPadding;
+
+  var svg = d3.select("#hunt-clusturing")
+    .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    .append("g")
+      .attr("transform", "translate(" + [xPadding, yPadding] + ")");
+
+  var bounds = d3.geom.polygon([
+    [0, 0],
+    [0, height - 2*yPadding],
+    [width - 2*xPadding, height - 2*yPadding],
+    [width - 2*xPadding, 0]
+  ]);
+
+  var dragCentre = d3.behavior.drag()
+    .origin(Object)
+    .on("drag", function(d){
+      var circle = d3.select(this);
+
+    circle
+      .attr("cx", d.x = Math.max(0, Math.min(width - 2*xPadding, d3.event.x)))
+      .attr("cy", d.y = Math.max(0, Math.min(height - 2*yPadding, d3.event.y)));
+
+    circle.datum().x = Math.max(0, Math.min(width - 2*xPadding, d3.event.x));
+    circle.datum().y = Math.max(0, Math.min(height - 2*yPadding, d3.event.y));
+
+    })
+    .on("dragend", function(d){
+      assignment();
+      svg.selectAll("circle.data").transition().delay(1500).style("fill", function(d){return color(d.cluster);});
+    drawVoronoi(1000,1000);
+    });
+
+  var dragData = d3.behavior.drag()
+    .origin(Object)
+    .on("drag", function(d){
+      var circle = d3.select(this);
+
+    circle
+      .attr("cx", d.x = Math.max(0, Math.min(width - 2*xPadding, d3.event.x)))
+      .attr("cy", d.y = Math.max(0, Math.min(height - 2*yPadding, d3.event.y)));
+
+    circle.datum().x = Math.max(0, Math.min(width - 2*xPadding, d3.event.x));
+    circle.datum().y = Math.max(0, Math.min(height - 2*yPadding, d3.event.y));
+
+    })
+    .on("dragend", function(d){
+      assignment();
+      svg.selectAll("circle.data").transition().delay(1500).style("fill", function(d){return color(d.cluster);});
+    });
+
+
+  initialise();
+
+
+  function initialise()
+  {
+    svg.selectAll("circle.centres_history").remove();
+    svg.selectAll("line.history").remove();
+    svg.selectAll("rect.clickable").remove();
+
+    generateCentres();
+
+    data = [];
+    svg.selectAll("circle.data").remove();
+    svg.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", innerWidth)
+    .attr("height", innerHeight)
+    .attr("class", "clickable")
+    .attr("fill", "#ffffff")
+    .style("fill-opacity", 0)
+    .on("click", function(d){
+      var mouse = d3.svg.mouse(this);
+    var x = mouse[0];
+    var y = mouse[1];
+
+    data.push({"x" : x, "y" : y, "cluster" : -1});
+
+    assignment(0);
+    drawDataPoints();
+    });
+
+    drawPoints();
+    drawVoronoi(0, 1000);
+    assignment();
+  }
+
+  function generateCentres()
+  {
+    centres = [
+      {"x" : (width-2*xPadding) * 1.0/2, "y" : (height-2*yPadding) * 1.0/3},
+      {"x" : (width-2*xPadding) * 2.0/3, "y" : (height-2*yPadding) * 2.0/3},
+      {"x" : (width-2*xPadding) * 1.0/3, "y" : (height-2*yPadding) * 2.0/3}
+    ];
+
+  }
+
+  function drawPoints()
+  {
+    svg.selectAll("circle.data").remove();
+
+    drawDataPoints();
+
+    svg.selectAll("circle.centres").remove();
+
+    svg.selectAll("circle.centres").data(centres).enter()
+      .append("circle")
+        .attr("class", "centres")
+        .attr("cx", function(d){return d.x;})
+        .attr("cy", function(d){return d.y;})
+        .attr("r", 10)
+        .style("fill", "#000000")
+      .call(dragCentre);
+  }
+
+  function drawDataPoints()
+  {
+    svg.selectAll("circle.data").data(data).enter()
+      .append("circle")
+        .attr("class", "data")
+        .attr("cx", function(d){return d.x;})
+        .attr("cy", function(d){return d.y;})
+        .attr("r", 5)
+        .style("fill", function(d){return color(d.cluster);})
+        .call(dragData);
+  }
+
+  function drawVoronoi(delay, duration)
+  {
+      svg.selectAll("path.voronoi").data([]).exit().transition().duration(1000).attr("stroke-opacity", 0).remove();
+
+    var vertices = centres.map(function(d) {
+      return [d.x, d.y];
+    });
+
+    svg.selectAll("path.new")
+      .data(d3.geom.voronoi(vertices).map(function(cell) { return bounds.clip(cell); }))
+    .enter().append("path")
+    .attr("stroke-opacity", 0)
+    .attr("class", "voronoi")
+    .transition().delay(delay).duration(duration)
+      .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+    .attr("fill", "none")
+    .attr("stroke", "#999999")
+    .attr("stroke-opacity", 1);
+  }
+
+  function button()
+  {
+    iterate();
+
+    svg.selectAll("circle.centres").transition().duration(2000)
+      .attr("cx", function(d){return d.x;})
+      .attr("cy", function(d){return d.y;});
+
+    drawVoronoi(1000,1000);
+  };
+
+  function assignment(delay)
+  {
+    for(var i = 0; i < data.length; i++)
+    {
+      var assigned = 0;
+      var bestDistance = Math.sqrt(Math.pow(data[i].x - centres[0].x,2) + Math.pow(data[i].y - centres[0].y,2));
+
+      for(var j = 1; j < centres.length; j++)
+      {
+        var distance = Math.sqrt(Math.pow(data[i].x - centres[j].x,2) + Math.pow(data[i].y - centres[j].y,2));
+        if(distance < bestDistance)
+      {
+        assigned = j;
+        bestDistance = distance;
+      }
+      }
+
+      data[i].cluster = assigned;
+    };
+
+    svg.selectAll("circle.data").transition().delay(delay).style("fill", function(d){return color(d.cluster);});
+  }
+
+  function iterate()
+  {
+    for(var j = 0; j < centres.length; j++)
+    {
+      var totalX = 0;
+      var totalY = 0;
+      var countPoints = 0;
+
+      for(var i = 0; i < data.length; i++)
+      {
+        if(data[i].cluster == j)
+      {
+        totalX = totalX + data[i].x;
+        totalY = totalY + data[i].y;
+        countPoints += 1;
+      }
+      }
+
+      if(countPoints != 0)
+      {
+        centres[j].x = totalX / countPoints;
+        centres[j].y = totalY / countPoints;
+      }
+    }
+
+    assignment(500);
+  }
+
+</script>

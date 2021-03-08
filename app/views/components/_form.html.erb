@@ -1,0 +1,6 @@
+<%= simple_form_for @result, url: @next_path, method: :get do |f| %>
+  <% @searched_attrs.each do |attr| %>
+    <%= f.input attr %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

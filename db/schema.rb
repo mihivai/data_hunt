@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_182301) do
+ActiveRecord::Schema.define(version: 2021_03_07_015000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2021_03_06_182301) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "city_number"
+    t.string "city1"
+    t.string "city2"
+    t.string "city3"
+    t.string "news_item_url"
+    t.string "google_image_title"
+    t.string "notion_url"
+    t.string "friend1"
+    t.string "friend2"
+    t.string "friend3"
+    t.string "friend4"
+    t.string "friend5"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

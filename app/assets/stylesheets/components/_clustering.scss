@@ -1,0 +1,12 @@
+#hunt-map {
+  position: relative;
+  background-image: asset-url("europe");
+  width: 500px;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+
+  #hunt-clusturing {
+    position: absolute;
+  }
+}

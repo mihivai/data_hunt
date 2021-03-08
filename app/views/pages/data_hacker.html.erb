@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Les archives comme point de départ</h1>
+
+  <p>Il existe une base de données cachée. Dans cette base de données, les vols y sont stocker. Il vous faut hacker la base de données et trouver combien de vol d'oeuvre d'art ont eu lieu.</p>
+
+  <p>Ecrivez du code dans la console pour craquer le code faire apparaitre la base de données</p>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div id="hack-console">
+        <textarea name="" id="" cols="30" rows="10">
+
+        </textarea>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <%= render "components/hacker" %>
+    </div>
+  </div>
+
+
+  <div class="d-none" id="db-data-hunt">
+    <iframe src="<%= Result::DB_URL %>"></iframe>
+  </div>
+
+  <%= render "components/form" %>
+
+</div>
+
