@@ -1,27 +1,53 @@
-<h2>Sign up</h2>
+<div class="container text-center">
+  <h1>Bienvenue!!!</h1>
 
-<p>Test</p>
+  <p>Pendant le menage de printemps dans la maison familliale,
+  vous tombez tombez sur ce qui semble être le <strong>journal intime</strong>d'un illustre encêtre : l'oncle Bob.
+  Dans ce journal celui explique que l'orsque qu'il était jeune, à la fin du XVIIIème siècle, il était matelot et voyager au tour du monde.
+  Pendant l'un de ses nombreux voyages, au court d'une de ses promenades solitaire sur <strong>une ile</strong>
+  (dont le nom n'est pas cité malheureusement...),
+  il a trouvé un <strong>trésor inestimable</strong>.
+  Plutôt méfiant de nature, il n'avait aucune confiance en l'équipage qui l'acompagné,
+  et surtout pas en son ami surnommé <strong>"Joe le collectionneur de pipes"</strong> qu'il savait un peu <strong>voleur</strong>.
+  il décida alors d'enterrer le trésor sur place. Il espérait retourner le chercher plus tard.
+  Malheureusement la vie fit que ce ne fut jamais le cas.
+  <br>
+  Cet oncle, dont les aventures était encore contaient aux réunions familiales n'avait pas la réputation d'être fantaisiste.
+  Vous êtes donc convaincu que le trésor existe et qu'il n'attend que vous!
+  Malheureusement, vous ne connaissez quasiment rien de sa vie de votre encêtre à part quelques annecdotes
+  et vous n'avez <strong>aucun indice</strong> mise à part ce text...
+  Êtes vous près magrès tout à vous lancer dans l'aventure
+  pour une <strong>chasse au trésor</strong> qui promet de vous faire voyager
+  (et tout particulièrement dans le monde la <strong>data</strong> ;) )?
+  <br>
+  Si oui inscrivez vous!
+  </p>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" }, label: "Mot de passe" %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" }, label: "Confirmation du mot de passe" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "S'inscrire", class: "btn btn-warning" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
