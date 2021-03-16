@@ -1,10 +1,27 @@
-* {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+.bg-hack {
+  height: 700px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  .hack-screen {
+    position: absolute;
+    top: 27px;
+    left: 95px;
+    right: 97px;
+    bottom: 260px;
+    background: black;
+  }
+  #hack-console textarea {
+    background: black;
+    width: 288px;
+    height: 413px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+  }
 }
+
 
 #hacker {
   margin: 0;
@@ -12,8 +29,17 @@
   color: #666;
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
-  height: 500px;
+  height: 350px;
+  width: 450px;
+  position: relative;
 
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
   div {
     position: absolute;
   }

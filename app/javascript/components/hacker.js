@@ -2,13 +2,13 @@ const hackerConsole = () => {
   const dbConsole = document.getElementById("hack-console");
   if (dbConsole) {
     const dbInput = dbConsole.querySelector("textarea");
-    const dbIframe = document.getElementById("db-data-hunt");
+    const dbIframe = document.getElementById("hack-secret");
     let dbCount = 0;
-    const dbText = "azertyuiop poiuytreza"
+    const dbText = "$><div>Le mot de passe est : <span style='color: red;'>D@t@-Hunt! </span><div>Bravo tu as hacké le system! La db est accessible juste en dessous</div>"
     dbInput.addEventListener("keyup", (e) => {
       dbCount += 1;
       dbInput.value = dbText.substring(0, dbCount);
-      if (dbCount === 10) {
+      if (dbCount > 40) {
         dbIframe.classList.remove("d-none")
       }
     });

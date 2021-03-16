@@ -1,12 +1,32 @@
 class PagesController < ApplicationController
   ORDERED_METHODS = {
-    data_hacker: [:city_number],
-    art_dealers: [:city1, :city2, :city3],
-    news_item: [:news_item_url],
-    inside_clue: [:google_image_title],
-    great_trip: [:notion_url],
-    fake_friend: [:friend1, :friend2, :friend3, :friend4, :friend5],
-    bad_move: [:location],
+    data_hacker: [
+      {input: :city_number,
+      label: "Dans combien de villes des montres de valeur ont été volées?"}],
+    art_dealers: [
+      {input: :city1, label: "Ville centrale"}, {input: :city2, label: "Ville centrale"}, {input: :city3, label: "Ville centrale"}],
+    news_item: [{
+      input: :news_item_url,
+      label: "Quelle est l'url du document que vous avez trouvé dans la base de données?"
+    }],
+    inside_clue: [{
+      input: :google_image_title,
+      label: "Quel est le nom du bateau?",
+    }],
+    great_trip: [{
+      input: :notion_url,
+      label: "Quelle est l'url du document que vous avez trouvé dans la base de données?",
+    }],
+    fake_friend: [
+      {input: :friend1, label: "1er marin le plus virulent (avec la 1ère note la plus haute) "},
+      {input: :friend2, label: "2ème marin le plus virulent (avec la 2ème note la plus haute) "},
+      {input: :friend3, label: "3ème marin le plus virulent (avec la 3ème note la plus haute) "},
+      {input: :friend4, label: "4ème marin le plus virulent (avec la 4ème note la plus haute) "},
+      {input: :friend5, label: "marin le moins virulent (avec la note la plus basse) "} ],
+    bad_move: [{
+      input: :location,
+      label: "Quel est l'animal le plus présent sur le spot de plongée dans lequel le boulet est tombé?",
+    }],
     ultimate_shovel: [],
     final_treasure: [],
   }

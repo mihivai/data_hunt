@@ -1,11 +1,19 @@
 <h1>Un voyage au bout du monde</h1>
 
-<p>Mettre le nom du tableau dans <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">wikipedia</a> pour trouver une adresse et la date</p>
+<p>
+  En recherchant sur internet des informations sur ce bateau, vous découvrez la date et le lieu de la mutinerie. Vous y êtes presque! Si seulement vous pouviez retrouver le boulet de canon dans lequel il ya la carte, ça serai gagné… Peut être que dans la base de données, un article fait référence à cette mutinerie et à ces fameux mutins, si c’est le cas vous pourriez en apprendre plus et peut être même identifier le plus réfractaire d’entre eux (puisque c’est lui qui détenait le boulet et donc la carte).
+</p>
 
-<p>Trouver la correspondance dans la base de données</p>
+<div class="tech-point">
+  <h4>Point technique</h4>
+  <p>
+    Vous pouvez faire une recherche plus précise dans la base de données en tapant les touches « controle » et « F » en même temps.
+  </p>
+</div>
 
 <div id="db-data-hunt">
   <iframe src="<%= Result::DB_URL %>"></iframe>
 </div>
 
 <%= render "components/form" %>
+

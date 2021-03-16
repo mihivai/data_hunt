@@ -1,6 +1,6 @@
 <%= simple_form_for @result, url: @next_path, method: :get do |f| %>
   <% @searched_attrs.each do |attr| %>
-    <%= f.input attr %>
+    <%= f.input attr[:input], label: attr[:label] %>
   <% end %>
   <%= f.button :submit %>
 <% end %>

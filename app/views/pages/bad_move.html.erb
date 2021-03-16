@@ -1,17 +1,40 @@
 <h1>Un dernier mauvais coup</h1>
 
+<p>
+  Super! Maintenant nous savons qui était le détenteur du boulet! Votre amis fait des recherche pour voir ou s’est dépendant vivent. Elle a trouvé. Apres la mutinerie le marin s’est installé sur l’ile de Tubuai. Il y mouru, mais il lui reste encore beaucoup de descendants sur l’île. Votre ami trouve également un article du 28 avril 2019 qui parle de cette île. Il pourrait bien vous intéresser.
+  En voici le gros titre et une image :
+</p>
+
+<h4>28 avril 2019 - 230ème anniversaire de la mutinerie du Bounty</h4>
+<p>
+  En l'honneur du 230ème anniversaire de la mutinerie du Bounty, la famille Skinner, dont l'ancêtre était marin sur le navire organise une cérémonie au cours de laquelle ils tireront un coup de canon avec un boulet issu du navire que le leur ancêtre leur a transmis. La symbolique est de rendre à la mer le souvenir de cet évènement qui a temps marqué l'histoire de l'île.
+</p>
+
 <div id="chart-container" style="width:100%; height:400px;"></div>
+<p><i><u>Légende:</u> Reconstitution de la trajectoire du boulet à partir des différentes photos prises ce jour là.</i></p>
 
-<p>Relever sur le graphique les points de la trajectoire du boulet</p>
+<p>
+  Mince le boulet s'est perdu dans le lagon de Tubuai… Vous êtes prêt.e à plonger pour le retrouver mais le lagon est vaste. Où chercher? Grâce aux différentes photos faites ce jour là, vous pouvez voir le début de la trajectoire. Celle-ci devrait vous aider à déterminer le point ou le boulet a touché l’eau. Mais il faut que vous soyez très précis.
+</p>
 
-<p>Utiliser <a href="https://fr.planetcalc.com/5992/">ce site</a> qui propose plusieur équations pour modéliser la courbe du boulet</p>
+<div class="tech-point">
+  <h4>Point technique</h4>
+  <p>
+    Il existe plusieurs courbes régulièrement utilisées par les data scientistes pour représenter une suite de points comme celle-ci. Pour évaluer si une courbe représente bien cette suite de points il existe plusieurs indicateurs et notamment le coefficient de corrélation. Plus celui-ci est proche de 1 plus la courbe représente bien les points.
 
-<p>Choisir le model le plus précis (avec le R2 le plus proche de 1)</p>
+    Pour trouver la courbe qui colle le mieux a la trajectoire du boulet vous pouvez utiliser <a href="https://fr.planetcalc.com/5992/">le site suivant</a>. Il permet de tester plusieurs courbes et calcule le coefficient de corrélation pour vous.
 
-<p>Prendre l'équation et la coller dans <a href="https://www.wolframalpha.com/">le site wolfram alpha</a></p>
+    Tout d’abord notez tous les x (valeurs des positions au sol) des points sur le graphique et écrivez les dans la 1ère zone de texte du site.
+    Ensuite notez tous les y (valeurs des l’altitudes) de ces mêmes points et écrivez les dans la seconde zone de texte du site.
+    Clicker sur le bouton orange « calculer »
+    Toutes les courbes sont alors calculées. Le site vous affiche leur équation et différents coefficients qui les caractérisent dont le coefficient de corrélation. Choisissez la courbe avec le coefficient de corrélation le plus proche de 1.
+    Copier/ coller l’équation de cette courbe dans <a href="https://www.wolframalpha.com/">le site wolfram alpha</a>. Le site wolfram alpha résout pour vous les équation les plus complexes.
+    En scrollant un peu vous trouverez les deux valeurs de x pour lesquelles le boulet est au sol. Il y a bien-sûr le point où est situé le canon d’où est parti le boulet (soit x = 0) et le second x et le point où le boulet à touché l’eau.
+  </p>
+</div>
 
-<p>Trouver à quelle distance le boulet est arrivé (valeur du second x dans wolfram alpha)</p>
-
-<p>Retrouver dans le text le monument qui correspond à la bonne distance</p>
+<p>
+  Si vous avez réussi à suivre les instructions, vous avez trouvé à quelle distance le boulet à touché l’eau et donc dans quel spot de plongée est tombé le boulet. Vous n’avez plus qu’a vous rendre à Tubuai et à plonger!
+</p>
 
 <%= render "components/form" %>

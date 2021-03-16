@@ -1,12 +1,23 @@
 class Result < ApplicationRecord
-  CITY_NUMBER = 12
+  CITY_NUMBER = 18
   DB_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8FKimNKpoWzaoyowE9yVYf2_RRf5A5oTVJQNIFuNDzsVsv01yuEVY-_LTUwYeSZ6UWfHYzctxzeV/pubhtml?widget=true&amp;headers=false"
-  NEWS_ITEM_URL = "https://tahitileblog.fr/wp-content/uploads/2018/01/La-mutinerie-de-la-Bounty.jpg"
-  CITIES = ["grenoble", "bordeaux", "montpellier"]
-  GOOGLE_IMAGE_TITLE = "mutinerie-de-la-bounty"
-  NOTION_URL = "https://www.notion.so/Data-Hunt-2d6395ae055d4742ab76c95a05e43d0a"
-  FRIENDS = ["audrey", "bob", "coco", "dede", "elo"]
-  LOCATION = "tahiti"
+  NEWS_ITEM_URL = "http://bit.ly/data-hunt-old-paper"
+  CITIES = ["coventry", "bath", "dartford"]
+  GOOGLE_IMAGE_TITLE = "bounty"
+  NOTION_URL = "http://bit.ly/data-hunt-mutinerie"
+  FRIENDS = [
+    "Richard Skinner".parameterize,
+    "John Millward".parameterize,
+    "Robert Lamb".parameterize,
+    "William Muspratt".parameterize,
+    "Thomas Hall".parameterize
+  ]
+  # "Thomas Hall" => 77,
+  # "Robert Lamb" => 14,
+  # "William Muspratt" => 50,
+  # "John Millward" => 6,
+  # "Richard Skinner" => 1
+  LOCATION = "tortue"
   validate :city_number_validation
   validate :cities_validation
   validate :news_item_url_validation
@@ -37,7 +48,7 @@ class Result < ApplicationRecord
   end
 
   def google_image_title_validation
-    if !google_image_title.present? || google_image_title.parameterize != GOOGLE_IMAGE_TITLE
+    if !google_image_title.present? || !google_image_title.parameterize.include?(GOOGLE_IMAGE_TITLE)
       errors.add(:google_image_title, "Ce n'est pas le bon titre")
     end
   end
@@ -60,8 +71,8 @@ class Result < ApplicationRecord
   end
 
   def location_validation
-    if !location.present? || location.parameterize != LOCATION
-      errors.add(:location, "Ce n'est pas la bonne localisation")
+    if !location.present? || !location.parameterize.include?(LOCATION)
+      errors.add(:location, "Ce n'est pas le bon animal")
     end
   end
 
