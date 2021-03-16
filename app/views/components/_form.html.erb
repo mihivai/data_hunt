@@ -1,6 +1,9 @@
-<%= simple_form_for @result, url: @next_path, method: :get do |f| %>
-  <% @searched_attrs.each do |attr| %>
-    <%= f.input attr[:input], label: attr[:label] %>
+
+<div class="py-3">
+  <%= simple_form_for @result, url: @next_path, method: :get do |f| %>
+    <% @searched_attrs.each do |attr| %>
+      <%= f.input attr[:input], label: attr[:label] %>
+    <% end %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
-  <%= f.button :submit %>
-<% end %>
+</div>

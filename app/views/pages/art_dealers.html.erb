@@ -1,26 +1,34 @@
-<h1>Les trafiquant d’art</h1>
+<div class="container px-5 text-justify">
+  <div class="px-5">
+    <h1 class="py-5 text-center">Les trafiquants d’art</h1>
 
-<p>
-  Super vous avez trouvez toutes les villes où il y a eu des vols de montre. Mais cela ne nous dis pas exactement où habitait Joe
-  En plus, en faisant quelques recherches supplémentaires votre amis a trouvé que, au moins trois voleurs de montres de collection sévissaient à cette époque. Ce problème n’est finalement pas si simple…
-  Pour commencer, vous décidez de disposer précisèrent toutes ces villes sur la carte.
-  Trois groupes semblent se dessiner. Mais quelle est la ville « centrale » pour chacun de ces groupe?
-</p>
+    <p>
+      Super, vous avez trouvé toutes les villes où il y a eu des vols de montres. Mais cela ne nous dit pas exactement où habitait Joe…
+      <br>
+      En plus, en faisant quelques recherches supplémentaires votre amie a trouvé qu'au moins trois voleurs de montres de collection sévissaient à cette époque. Ce problème n’est finalement pas si simple…
+    </p>
+    <p>
+      Pour commencer, vous décidez de disposer précisément toutes ces villes sur la carte.
+      Trois groupes semblent se dessiner. Mais quelle est la ville « centrale » pour chacun de ces groupes ?
+    </p>
 
-<div class="tech-point">
-  <h4>Point technique</h4>
-  <p>
-    Pour les déterminer, il existe un outil de data science qui s’appelle la classification. Pour lancer cet outil il vous suffit d’appuyer sur « démarrer la classification ».
-  </p>
-</div>
+    <div class="tech-point mt-4">
+      <h4>Point technique</h4>
+      <p>
+        Pour les déterminer, il existe un outil de data science qui s’appelle la classification. 
+        <br>
+        Pour lancer cet outil, il vous suffit d’appuyer sur « démarrer la classification ».
+      </p>
+    </div>
 
-<p>
-  Dès que cela est fait vous devriez trouver les trois villes centrales. Bien joué! Une étape de plus de passée!
-</p>
+    <p>
+      Dès que cela est fait, vous devriez trouver les trois villes centrales. Bien joué ! Une étape de plus de passée !
+    </p>
 
-<div class="d-flex justify-content-center">
-  <button class="btn btn-success" onclick="button()">Iterate Algorithm</button><br>
-  <button class="btn btn-danger" onclick="initialise()">Re-Initialise</button><br>
+    <div class="d-flex justify-content-center mb-3">
+      <button class="btn btn-success mx-2" onclick="button()">Iterate Algorithm</button><br>
+      <button class="btn btn-danger mx-2" onclick="initialise()">Re-Initialise</button><br>
+    </div>
 </div>
 
 <div class="d-flex justify-content-around">
@@ -33,7 +41,9 @@
   </div>
 </div>
 
-<%= render "components/form" %>
+<div class="px-5 w-75">
+  <%= render "components/form" %>
+</div>
 
 
 
@@ -266,3 +276,5 @@
   }
 
 </script>
+
+</div>
