@@ -1,18 +1,21 @@
-<h1>Un faux ami</h1>
+<div class="container px-10 text-justify">
+  <h1 class="py-5 text-center">Un faux-ami</h1>
 
-<p>
-  Super vous avez trouvé les témoignages des mutins! Mais comment identifier le plus virulent d’entre eux?
-</p>
-
-<div class="tech-point">
-  <h4>Point technique</h4>
   <p>
-    En data science, il existent des programme qui sont capables d’identifier le degrés de sympathie que l’auteur véhicule dans un text. Un de ces programmes a été développé par Microsoft. Il est accessible à l’<a href="https://aidemos.microsoft.com/text-analytics">adresse suivante</a>.
+    Super, vous avez trouvé les témoignages des mutins ! Mais comment identifier le plus virulent d’entre eux ?
   </p>
+
+  <div class="tech-point mt-4">
+    <h4>Point technique</h4>
+    <p>
+      En data science, il existe des programmes qui sont capables d’identifier le degré de sympathie que l’auteur véhicule dans un texte. Un de ces programmes a été développé par Microsoft. Il est accessible à l’<a href="https://aidemos.microsoft.com/text-analytics">adresse suivante</a>.
+    </p>
+  </div>
+
+  <p>
+    Utilisez le programme pour chacun des extraits de citation des mutins et déterminez le classement du plus virulent au moins virulent.
+  </p>
+
+  <%= render "components/form" %>
+
 </div>
-
-<p>
-  Utilisez le programme pour chacun des extraits de citation des mutins et déterminez le classement du plus virulent au moins virulent.
-</p>
-
-<%= render "components/form" %>

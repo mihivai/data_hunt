@@ -1,21 +1,24 @@
-<h1>Un fait divers de plus</h1>
+<div class="container text-justify px-10">
+  <h1 class="py-5 text-center">Un fait divers de plus</h1>
+  <p>
+    Vous savez maintenant que Joe habitait probablement dans une de ces trois villes :
+  </p>
 
-<p>
-  Nous savons maintenant que Joe habitait probablement dans une de ses trois villes:
-</p>
+  <ul>
+    <li>Bath</li>
+    <li>Coventry</li>
+    <li>Dartford</li>
+  </ul>
 
-<ul>
-  <li>Bath</li>
-  <li>Coventry</li>
-  <li>Dartford</li>
-</ul>
+  <p>
+    Mais trois villes, c’est encore trop grand. Il vous faudrait un nouvel indice.
+    Peut-être trouverez-vous quelque-chose dans la base de données.
+  </p>
 
-<p>
-  Mais trois villes, c’est encore trop grand. Il nous faudrai un nouvel indice. Peut être trouverez vous quelque chose dans la base de données.
-</p>
+  <div id="db-data-hunt">
+    <iframe src="<%= Result::DB_URL %>"></iframe>
+  </div>
 
-<div id="db-data-hunt">
-  <iframe src="<%= Result::DB_URL %>"></iframe>
+  <%= render "components/form" %>
+
 </div>
-
-<%= render "components/form" %>

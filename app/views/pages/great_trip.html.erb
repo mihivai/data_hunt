@@ -1,19 +1,29 @@
-<h1>Un voyage au bout du monde</h1>
+<div class="container px-10 text-justify">
+  <h1 class="text-center py-5">Un voyage au bout du monde</h1>
 
-<p>
-  En recherchant sur internet des informations sur ce bateau, vous découvrez la date et le lieu de la mutinerie. Vous y êtes presque! Si seulement vous pouviez retrouver le boulet de canon dans lequel il ya la carte, ça serai gagné… Peut être que dans la base de données, un article fait référence à cette mutinerie et à ces fameux mutins, si c’est le cas vous pourriez en apprendre plus et peut être même identifier le plus réfractaire d’entre eux (puisque c’est lui qui détenait le boulet et donc la carte).
-</p>
-
-<div class="tech-point">
-  <h4>Point technique</h4>
   <p>
-    Vous pouvez faire une recherche plus précise dans la base de données en tapant les touches « controle » et « F » en même temps.
+    En recherchant sur internet des informations sur ce bateau, vous découvrez la date et le lieu de la mutinerie. Vous y êtes presque !
   </p>
-</div>
+  <p>
+    Si seulement vous pouviez retrouver le boulet de canon dans lequel il y a la carte, ce serait gagné…
+  </p>
+  <p>
+    Peut-être que dans la base de données, un article fait référence à cette mutinerie et à ces fameux mutins. 
+    <br>
+    Si c’est le cas vous pourriez en apprendre plus et peut-être même identifier le plus réfractaire d’entre eux (puisque c’est lui qui détenait le boulet et donc la carte).
+  </p>
 
-<div id="db-data-hunt">
-  <iframe src="<%= Result::DB_URL %>"></iframe>
-</div>
+  <div class="tech-point">
+    <h4>Point technique</h4>
+    <p>
+      Vous pouvez faire une recherche plus précise dans la base de données en tapant les touches « contrôle » (CTRL) et « F » en même temps.
+    </p>
+  </div>
 
-<%= render "components/form" %>
+  <div id="db-data-hunt mt-4">
+    <iframe src="<%= Result::DB_URL %>"></iframe>
+  </div>
+
+  <%= render "components/form" %>
+</div>
 

@@ -1,13 +1,26 @@
-<div class="container">
-  <h1>Les archives comme point de départ</h1>
+<div class="container text-justify">
+  <div class="px-10">
+    <h1 class="py-5 text-center">Les archives comme point de départ</h1>
 
-  <p>
-    Peut être qu’en retrouvant Joe l’horloger vous pourriez en apprendre plus. Mais comment faire?
-    Les seules informations que vous avez sur ce Joe c’est qu’il volait des montres de valeur autours de chez lui à la fin du XVIIIème (soit entre 1770 et 1800)
-    Vous avez une amie qui travaille comme informaticienne aux archives de police. Elle aura surement une piste! Vous décidez de lui demander de l’aide. Elle accepte et prend son ordinateur pour regarder dans la base de données. Malheureusement les bases de données de cette époque sont protégées par un mot de passe, il va falloir « hacker » le système pour pouvoir accéder aux infos. A vous de jouer!
-  </p>
+    <p>
+      Peut-être qu’en retrouvant Joe l’horloger vous pourriez en apprendre plus.
+      <br>
+      Mais comment faire ?
+    </p>
+    <p>
+      Les seules informations que vous avez sur ce Joe, c’est qu’il volait des montres de valeur autour de chez lui à la fin du XVIIIème (soit entre 1770 et 1800).
+    </p>
+    <p>
+      Vous avez une amie qui travaille comme informaticienne aux archives de police. Elle aura surement une piste !
+    <br>
+      Vous décidez de lui demander de l’aide. Elle accepte et prend son ordinateur pour regarder dans la base de données.
+    </p>
+    <p>
+      Malheureusement les bases de données de cette époque sont protégées par un mot de passe, il va falloir « hacker » le système pour pouvoir accéder aux infos. A vous de jouer !
+    </p>
+  </div>
 
-  <div class="bg-hack" style="background-image: url(<%= image_path('ordi.png') %>);">
+  <div class="bg-hack mt-5" style="background-image: url(<%= image_path('ordi.png') %>);">
     <div class="hack-screen d-flex text-align-center">
       <div id="hack-console">
         <textarea name="" id="" cols="30" rows="10">$></textarea>
@@ -15,12 +28,10 @@
       <%= render "components/hacker" %>
     </div>
   </div>
-
-
-  <div id="hack-secret" class="d-none">
+  <div id="hack-secret" class="d-none px-10">
 
     <p>
-     Bravo vous avez hacké le système et récupéré la base de donnée. Il ne vous reste plus qu’a trouver dans quelles villes ont eu lieu les vols de montres précieuses. Cela vous aidera surement à retrouver Joe!
+    Bravo vous avez hacké le système et récupéré la base de données. Il ne vous reste plus qu’à trouver dans quelles villes ont eu lieu les vols de montres précieuses. Cela vous aidera sûrement à retrouver Joe !
     </p>
 
 
