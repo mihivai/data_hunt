@@ -1,24 +1,26 @@
-<div class="container text-justify px-10">
-  <h1 class="py-5 text-center">Un fait divers de plus</h1>
-  <p>
-    Vous savez maintenant que Joe habitait probablement dans une de ces trois villes :
-  </p>
+<div class="container px-5 text-justify">
+  <div class="px-5">
+    <%= render "components/title", title: "Une bien belle collection" %>
 
-  <ul>
-    <li>Bath</li>
-    <li>Coventry</li>
-    <li>Dartford</li>
-  </ul>
+    <div class="text-center mb-5">
+      <%= image_tag "watches.jpg", width: "300px"%>
+    </div>
 
-  <p>
-    Mais trois villes, c’est encore trop grand. Il vous faudrait un nouvel indice.
-    Peut-être trouverez-vous quelque-chose dans la base de données.
-  </p>
+    <p>
+      Vous savez maintenant que Joe habitait probablement dans une de ces trois villes :
+    </p>
 
-  <div id="db-data-hunt">
-    <iframe src="<%= Result::DB_URL %>"></iframe>
+    <ul>
+      <li>Bath</li>
+      <li>Coventry</li>
+      <li>Dartford</li>
+    </ul>
+
+    <p>
+      Mais trois villes, c’est encore trop grand. Il vous faudrait un nouvel indice.
+      Peut-être trouverez-vous quelque-chose dans la base de données.
+    </p>
+
+    <%= render "components/dashboard" %>
   </div>
-
-  <%= render "components/form" %>
-
 </div>

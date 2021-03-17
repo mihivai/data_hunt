@@ -1,11 +1,34 @@
-<div class="container px-10 text-justify">
-  <h1 class="py-5 text-center">Le dernier coup de pelle</h1>
+<div class="container px-5 text-justify">
+  <div class="px-5">
+
+    <%= render "components/title", title: "Ça tombe à l'eau !" %>
+
+    <!--
+      ##############################################
+      ##############################################
+
+                       @@@@@@@
+                    @@@@@@@@@@@@@
+                  @@@@         @@@@
+                 @@@  -17.61666  @@@
+                 @@@  -149.53333 @@@
+                  @@@@         @@@@
+                    @@@@@@@@@@@@@
+                       @@@@@@@
+
+         Maintenant que vous avez les coordonnées
+               allez à la page suivante :
+      https://data-hunt.herokuapp.com/final-treasure
+
+      ##############################################
+      ##############################################
+    -->
 
   <p>
     Vous êtes arrivé(e) au spot de plongée. Il ne vous reste plus qu’à plonger pour trouver le boulet. Autrement dit, il faut que vous inspectiez chaque recoin du code HTML de cette page.
   </p>
 
-  <div class="technique mt-4">
+  <div class="tech-point mt-4">
     <h4>Point technique</h4>
     <p>
       Pour inspecter le code HTML qui a permis de construire une page web, il faut faire « clic droit », puis « afficher le code source de la page » . Apparaît alors le code HTML.
@@ -16,25 +39,9 @@
     Ca y est, vous avez trouvé le boulet et la position du trésor ! Un dernier voyage et vous allez enfin mettre la main sur le but de votre quête.
   </p>
 
-  <!--
-    ###########################################
-    ###########################################
+  <div class="lagoon">
+    <%= image_tag "ball.png"%>
+  </div>
 
-                @@@@@@@
-              @@@@@@@@@@@@@
-            @@@@         @@@@
-          @@@  -17.61666  @@@
-          @@@  -149.53333 @@@
-            @@@@         @@@@
-              @@@@@@@@@@@@@
-                @@@@@@@
-
-    Maintenant que vous avez les coordonnées
-          allez à la page suivante :
-    https://data-hunt.herokuapp.com/final-treasure
-
-    ###########################################
-    ###########################################
-  -->
-
+  </div>
 </div>

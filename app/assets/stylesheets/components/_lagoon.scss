@@ -1,0 +1,15 @@
+.lagoon {
+  margin-top: 100px;
+  position: relative;
+  background-image: asset-url("lagoon.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 100%;
+  img {
+    position: absolute;
+    right: 10px;
+    top: -100px;
+    height: 250px;
+  }
+}

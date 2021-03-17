@@ -1,0 +1,17 @@
+.bg-paper {
+  position: relative;
+  background: linear-gradient(135deg, transparent 50px, white 20px);
+  .bg-paper-corner {
+    position: absolute;
+    top: -8px;
+    left: 0px;
+    background-image: asset-url("corner.png");
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    z-index: 1;
+  }
+  form {
+    z-index: 2;
+  }
+}

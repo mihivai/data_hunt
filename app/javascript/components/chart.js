@@ -9,63 +9,6 @@ const chartPlot = () => {
     require('highcharts/modules/export-data')(Highcharts);
     require('highcharts/modules/accessibility')(Highcharts);
 
-    // Highcharts.chart('chart-container', {
-    //   chart: {
-    //     type: 'spline'
-    //   },
-    //   title: {
-    //     text: 'Trajectoire du boulet'
-    //   },
-    //   subtitle: {
-    //     text: '28 avril 2019'
-    //   },
-    //   xAxis: {
-    //     categories: [0.01, 50, 100, 300, 1000, 2000, 3000, 3010, 3020, 3030]
-    //   },
-    //   yAxis: {
-    //     title: {
-    //       text: 'Altitude'
-    //     },
-    //     labels: {
-    //       formatter: function () {
-    //         return this.value + 'm';
-    //       }
-    //     }
-    //   },
-    //   tooltip: {
-    //     crosshairs: true,
-    //     shared: true
-    //   },
-    //   plotOptions: {
-    //     spline: {
-    //       marker: {
-    //         radius: 4,
-    //         lineColor: '#666666',
-    //         lineWidth: 1
-    //       }
-    //     }
-    //   },
-    //   series: [{
-    //     name: '',
-    //     marker: {
-    //       symbol: 'square'
-    //     },
-    //     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    //   }, {
-    //     name: 'London',
-    //     marker: {
-    //       symbol: 'circle'
-    //     },
-    //     data: [{
-    //       y: 0.03,
-    //       marker: {
-    //         symbol: 'url(https://res.cloudinary.com/dpilgpat0/image/upload/c_scale,w_50/v1615819805/Mihivai/data-hunt/cannon.png)'
-    //       }
-    //     }, 161, 281, 807, 2007, 1993]
-    //   }]
-    // });
-
     var averages = [
       [0.01, 0.03],
       [50, 161],
@@ -76,8 +19,8 @@ const chartPlot = () => {
     ];
 
     var seaLevel = [{
-        x: 0,
-        y: 0,
+        x: 0.01,
+        y: 0.03,
         marker: {
           symbol: 'url(https://res.cloudinary.com/dpilgpat0/image/upload/c_scale,w_50/v1615819805/Mihivai/data-hunt/cannon.png)',
           enabled: true

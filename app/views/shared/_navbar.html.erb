@@ -6,13 +6,13 @@
 
   <div class="d-none d-md-block">
     <div class="d-flex align-items-center justify-content-between">
-      <%= link_to "Notre Activité", "#", class: "navbar-mihivai-item navbar-mihivai-link" %>
-      <%= link_to "Nos Services", "/", class: "navbar-mihivai-item navbar-mihivai-link" %>
-      <%= link_to "Contact", "/", class: "navbar-mihivai-item navbar-mihivai-link" %>
+      <%#= link_to "Notre Activité", "#", class: "navbar-mihivai-item navbar-mihivai-link" %>
+      <%#= link_to "Nos Services", "/", class: "navbar-mihivai-item navbar-mihivai-link" %>
+      <%#= link_to "Contact", "/", class: "navbar-mihivai-item navbar-mihivai-link" %>
       <% if user_signed_in? %>
-        <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete , class: "navbar-mihivai-item navbar-mihivai-link"%>
+        <%= link_to t(".sign_out", default: "Se déconnecter"), destroy_user_session_path, method: :delete , class: "navbar-mihivai-item navbar-mihivai-link"%>
       <% else %>
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path , class: "navbar-mihivai-item navbar-mihivai-link"%>
+        <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path , class: "navbar-mihivai-item navbar-mihivai-link"%>
       <% end %>
     </div>
   </div>

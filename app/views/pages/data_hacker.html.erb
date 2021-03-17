@@ -1,6 +1,7 @@
 <div class="container text-justify">
-  <div class="px-10">
-    <h1 class="py-5 text-center">Les archives comme point de départ</h1>
+  <div class="px-5">
+
+    <%= render "components/title", title: "Les archives comme<br>point de départ" %>
 
     <p>
       Peut-être qu’en retrouvant Joe l’horloger vous pourriez en apprendre plus.
@@ -20,25 +21,22 @@
     </p>
   </div>
 
-  <div class="bg-hack mt-5" style="background-image: url(<%= image_path('ordi.png') %>);">
-    <div class="hack-screen d-flex text-align-center">
-      <div id="hack-console">
-        <textarea name="" id="" cols="30" rows="10">$></textarea>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="bg-hack">
+      <div class="hack-screen d-flex text-align-center">
+        <div id="hack-console">
+          <textarea name="" id="" cols="30" rows="10">$></textarea>
+        </div>
+        <%= render "components/hacker" %>
       </div>
-      <%= render "components/hacker" %>
     </div>
   </div>
-  <div id="hack-secret" class="d-none px-10">
 
+  <div id="hack-secret" class="d-none px-10">
     <p>
     Bravo vous avez hacké le système et récupéré la base de données. Il ne vous reste plus qu’à trouver dans quelles villes ont eu lieu les vols de montres précieuses. Cela vous aidera sûrement à retrouver Joe !
     </p>
-
-
-    <div class="db-data-hunt">
-      <iframe src="<%= Result::DB_URL %>"></iframe>
-    </div>
-    <%= render "components/form" %>
+    <%= render "components/dashboard" %>
   </div>
 </div>
 

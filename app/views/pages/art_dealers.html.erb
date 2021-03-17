@@ -1,6 +1,7 @@
 <div class="container px-5 text-justify">
   <div class="px-5">
-    <h1 class="py-5 text-center">Les trafiquants d’art</h1>
+
+    <%= render "components/title", title: "La carte de l'horloger" %>
 
     <p>
       Super, vous avez trouvé toutes les villes où il y a eu des vols de montres. Mais cela ne nous dit pas exactement où habitait Joe…
@@ -13,21 +14,22 @@
     </p>
 
     <div class="tech-point mt-4">
-      <h4>Point technique</h4>
+      <h4><i class="fas fa-cogs"></i> Point technique</h4>
       <p>
-        Pour les déterminer, il existe un outil de data science qui s’appelle la classification. 
+        Pour les déterminer, il existe un outil de data science qui s’appelle la classification.
         <br>
-        Pour lancer cet outil, il vous suffit d’appuyer sur « démarrer la classification ».
+        Pour lancer cet outil, il vous suffit de placer les villes sur la carte et
+        d’appuyer sur « démarrer la classification ».
       </p>
     </div>
 
     <p>
-      Dès que cela est fait, vous devriez trouver les trois villes centrales. Bien joué ! Une étape de plus de passée !
+      Dès que cela est fait, vous devriez trouver les trois villes centrales.
     </p>
 
     <div class="d-flex justify-content-center mb-3">
-      <button class="btn btn-success mx-2" onclick="button()">Iterate Algorithm</button><br>
-      <button class="btn btn-danger mx-2" onclick="initialise()">Re-Initialise</button><br>
+      <button class="btn btn-brown mx-2" onclick="button()">Démarrer la classification</button><br>
+      <button class="btn btn-brown mx-2" onclick="initialise()">Réinitialiser la carte</button><br>
     </div>
 </div>
 
@@ -35,15 +37,15 @@
   <div id="hunt-map">
     <div id='hunt-clusturing'></div>
   </div>
-
-  <div class="db-data-hunt">
-    <iframe src="<%= Result::DB_URL %>"></iframe>
-  </div>
 </div>
 
-<div class="px-5 w-75">
-  <%= render "components/form" %>
+<div class="container px-5 pt-5 text-justify">
+  <p>
+    Bien joué ! Une étape de plus de passée !
+  </p>
 </div>
+
+<%= render "components/dashboard" %>
 
 
 

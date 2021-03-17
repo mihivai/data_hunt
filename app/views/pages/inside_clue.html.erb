@@ -1,49 +1,51 @@
-<div class="px-10 text-justify container">
-  <h1 class="text-center py-5">Un indice dans l’indice</h1>
+<div class="container px-5 text-justify">
+  <div class="px-5">
 
-  <p>
-    Super, vous avez trouvé un article qui semble parler de Joe et de votre oncle dans le journal ! Il doit sûrement y avoir des infos.
-  </p>
-  <p>
-    Hélas, rien de très clair à part peut-être sur la photo ! On distingue un bateau sur le tableau en arrière-plan. C’est probablement celui sur lequel ils ont embarqué pour faire ce fabuleux voyage !
-  </p>
-  <p>
-    Faites une découpe précise du tableau à l’intérieur de l’illustration de l’article grâce à l’outil <a href="https://www.iloveimg.com/fr/recadrer-image" target="_blank">www.iloveimg.com</a> .
-  </p>
+    <%= render "components/title", title: "Un indice dans l’indice" %>
 
-  <div class="tech-point mt-4">
-    <h4>Point technique</h4>
+    <div class="text-center mb-5">
+      <%= image_tag "scissors.jpg", width: "300px"%>
+    </div>
+
     <p>
-      Pour ça il vous faut télécharger l’image sur votre machine en faisant « clic droit », puis « Enregistrer l’image sous… ».
+      Super, vous avez trouvé un article qui semble parler de Joe et de votre oncle dans le journal ! Il doit sûrement y avoir des infos.
     </p>
     <p>
-      Ensuite, il ne vous reste plus qu’à cliquer sur « Sélectionner des images », puis sélectionner l’image sur votre machine dans le dossier où vous l’avez enregistrée.
-      <br>
-      Il vous faudra découper précisément le tableau (de préférence à l’intérieur du cadre), puis télécharger cette nouvelle image sur votre machine.
+      Hélas, rien de très clair à part peut-être sur la photo ! On distingue un bateau sur le tableau en arrière-plan. C’est probablement celui sur lequel ils ont embarqué pour faire ce fabuleux voyage !
     </p>
-  </div>
-
-  <!-- <iframe src="https://www.iloveimg.com/fr/recadrer-image" frameborder="0" width="500" height="500"></iframe> -->
-
-  <p>
-    Maintenant que vous avez isolé ce tableau, il faudrait l’identifier ! Heureusement, il existe des outils pour ça ! Google images en est un.
-  </p>
-
-  <div class="tech-point">
-    <h4>Point technique</h4>
     <p>
-      Faites glisser l’image du tableau dans la barre de recherche de <a href="https://www.google.fr/imghp?hl=fr" target="_blank">google images</a>
+      Faites une découpe précise du tableau à l’intérieur de l’illustration de l’article grâce à l’outil <a href="https://www.iloveimg.com/fr/recadrer-image" target="_blank">www.iloveimg.com</a> .
     </p>
+
+    <div class="tech-point mt-4">
+      <h4>Point technique</h4>
+      <p>
+        Pour ça il vous faut télécharger l’image sur votre machine en faisant « clic droit », puis « Enregistrer l’image sous… ».
+      </p>
+      <p>
+        Ensuite, il ne vous reste plus qu’à cliquer sur « Sélectionner des images », puis sélectionner l’image sur votre machine dans le dossier où vous l’avez enregistrée.
+        <br>
+        Il vous faudra découper précisément le tableau (de préférence à l’intérieur du cadre), puis télécharger cette nouvelle image sur votre machine.
+      </p>
+    </div>
+
+    <!-- <iframe src="https://www.iloveimg.com/fr/recadrer-image" frameborder="0" width="500" height="500"></iframe> -->
+
+    <p>
+      Maintenant que vous avez isolé ce tableau, il faudrait l’identifier ! Heureusement, il existe des outils pour ça ! Google images en est un.
+    </p>
+
+    <div class="tech-point">
+      <h4>Point technique</h4>
+      <p>
+        Faites glisser l’image du tableau dans la barre de recherche de <a href="https://www.google.fr/imghp?hl=fr" target="_blank">google images</a>
+      </p>
+    </div>
+
+    <p>
+      Ça y est vous avez retrouvé le nom du bateau sur le tableau : félicitations, vous avancez !
+    </p>
+
+    <%= render "components/dashboard" %>
   </div>
-
-  <p>
-    Ça y est vous avez retrouvé le nom du bateau sur le tableau : félicitations, vous avancez !
-  </p>
-
-  <div id="db-data-hunt">
-    <iframe src="<%= Result::DB_URL %>"></iframe>
-  </div>
-
-  <%= render "components/form" %>
-
 </div>
