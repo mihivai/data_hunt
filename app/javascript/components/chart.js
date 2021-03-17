@@ -119,7 +119,7 @@ const chartPlot = () => {
     //   [3230, 0]
     // ];
 
-    Highcharts.chart('chart-container', {
+    let chart = Highcharts.chart('chart-container', {
 
       chart: {
         type: 'spline'
@@ -182,6 +182,7 @@ const chartPlot = () => {
 
     });
 
+    chart.reflow();
 
   }
 }
