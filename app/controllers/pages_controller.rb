@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   ORDERED_METHODS = {
     data_hacker: [
-      {input: :city_number,
-      label: "Dans combien de villes des montres de valeur ont été volées?"}],
+      {input: :website,
+      label: "Quelle l'adresse du site internet de Havior Company ?"}],
     art_dealers: [
-      {input: :city1, label: "Ville centrale"}, {input: :city2, label: "Ville centrale"}, {input: :city3, label: "Ville centrale"}],
+      {input: :employee_email, label: "Choisissez l'email d'un employé"}],
     news_item: [{
       input: :news_item_url,
       label: "Quelle est l'url du document que vous avez trouvé dans la base de données?"
@@ -49,6 +49,7 @@ class PagesController < ApplicationController
   def art_dealers
     @current_method = __method__
     play_validations
+    current_user.update(result_params)
   end
 
   def news_item
@@ -115,8 +116,8 @@ class PagesController < ApplicationController
   def result_params
     if params[:result]
       params.require(:result).permit(
-        :city_number,
-        :city1, :city2, :city3,
+        :website,
+        :employee_email,
         :news_item_url,
         :google_image_title,
         :notion_url,

@@ -1,5 +1,6 @@
 class Result < ApplicationRecord
-  CITY_NUMBER = 18
+  WEBSITE = "havior-company.herokuapp.com"
+  EMPLOYEE_EMAIL = "@havior.co"
   DB_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8FKimNKpoWzaoyowE9yVYf2_RRf5A5oTVJQNIFuNDzsVsv01yuEVY-_LTUwYeSZ6UWfHYzctxzeV/pubhtml?widget=true&amp;headers=false"
   NEWS_ITEM_URL = "http://bit.ly/data-hunt-old-paper"
   CITIES = ["coventry", "bath", "dartford"]
@@ -18,8 +19,8 @@ class Result < ApplicationRecord
   # "John Millward" => 6,
   # "Richard Skinner" => 1
   LOCATION = "tortue"
-  validate :city_number_validation
-  validate :cities_validation
+  validate :website_validation
+  validate :employee_email_validation
   validate :news_item_url_validation
   validate :google_image_title_validation
   validate :notion_url_validation
@@ -35,11 +36,18 @@ class Result < ApplicationRecord
     validation
   end
 
-  def city_number_validation
-    if !city_number.present? || city_number != CITY_NUMBER
-      errors.add(:city_number, "Ce n'est pas le bon nombre")
+  def website_validation
+    if !website.present? || !website.include?(WEBSITE)
+      errors.add(:website, "Ce n'est pas le bon site")
     end
   end
+
+  def employee_email_validation
+    employee_emails = User.all.find_all{ |u| (Date.today - u.created_at.to_date).to_i <= 1 }.map(&:employee_email)
+    if !employee_email.present? || !employee_emails.include?(employee_email)
+      errors.add(:employee_email, "Cet employé a un antivirus. Essayez en un autre")
+    end
+  end  
 
   def news_item_url_validation
     if !news_item_url.present? || news_item_url != NEWS_ITEM_URL

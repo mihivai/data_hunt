@@ -35,8 +35,13 @@
 }
 
 .title {
-  background-image: asset-url("title.png");
+  // background-image: asset-url("title.png");
   background-size: cover;
-  width: 777px;
-  height: 200px;
+  width: 600px;
+  height: 150px;
+  background: #FFE8E8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
