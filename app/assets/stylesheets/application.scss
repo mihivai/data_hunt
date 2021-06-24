@@ -45,3 +45,18 @@
   align-items: center;
   border-radius: 5px;
 }
+
+.connection {
+  position: relative;
+  color: black;
+  .nick-name {
+    position: absolute;
+    top: 120px;
+    left: 290px;
+  }
+  .email {
+    position: absolute;
+    top: 160px;
+    left: 290px;
+  }
+}
