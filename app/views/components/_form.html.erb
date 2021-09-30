@@ -3,7 +3,7 @@
   <div class="bg-paper-corner"></div>
   <h4 class="text-center pb-5">Nouvel indice?</h4>
   <%= simple_form_for @result, url: @next_path, method: :get do |f| %>
-    <%= f.input :user_employee_email, input_html: {value: current_user.employee_email} %>
+    <%= f.input :user_employee_email, as: :hidden, input_html: {value: current_user.employee_email} %>
     <% @searched_attrs.each do |attr| %>
       <%= f.input attr[:input], label: attr[:label] %>
     <% end %>
