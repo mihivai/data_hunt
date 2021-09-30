@@ -47,7 +47,7 @@ class PagesController < ApplicationController
     @current_method = __method__
     play_validations
     if !result_params[:employee_email].blank?
-      current_user.update(result_params)
+      current_user.update(employee_email: result_params[:employee_email])
     end
   end
 
@@ -110,6 +110,7 @@ class PagesController < ApplicationController
   def result_params
     if params[:result]
       params.require(:result).permit(
+        :user_employee_email,
         :website,
         :employee_email,
         :employee_pwd,

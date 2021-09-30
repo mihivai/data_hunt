@@ -45,6 +45,7 @@ class Result < ApplicationRecord
 
   def employee_email_validation
     employee_emails = User.all.find_all{ |u| (Date.today - u.created_at.to_date).to_i <= 1 }.map(&:employee_email)
+    employee_emails.delete(user_employee_email)
     if !employee_email.present? || !employee_email.include?(EMPLOYEE_EMAIL) || employee_emails.include?(employee_email)
       errors.add(:employee_email, "Cet employé a un antivirus. Essayez en un autre")
     end
