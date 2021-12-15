@@ -52,7 +52,8 @@ class Result < ApplicationRecord
   end  
 
   def employee_pwd_validation
-    if !employee_pwd.present? || !EMPLOYEE_PWDS.include?(employee_pwd)
+    # if !employee_pwd.present? || !EMPLOYEE_PWDS.include?(employee_pwd)
+    if employee_pwd != "qwerty"
       errors.add(:employee_pwd, "Ce n'est pas le bon mot de passe.")
     end
   end
