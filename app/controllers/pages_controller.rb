@@ -77,6 +77,8 @@ class PagesController < ApplicationController
   # end
 
   def final_treasure
+    @current_method = __method__
+    play_validations
   end
 
   def legal
@@ -89,11 +91,13 @@ class PagesController < ApplicationController
   end
 
   def set_methods
+    @searched_attrs = ORDERED_METHODS[@current_method]
     @current_method_index = ORDERED_METHODS.keys.find_index(@current_method)
     @previous_method = ORDERED_METHODS.keys[@current_method_index - 1]
-    @next_method = ORDERED_METHODS.keys[@current_method_index + 1]
-    @searched_attrs = ORDERED_METHODS[@current_method]
-    @next_path = eval("#{@next_method}_path")
+    if @current_method_index + 1 < ORDERED_METHODS.size
+      @next_method = ORDERED_METHODS.keys[@current_method_index + 1]
+      @next_path = eval("#{@next_method}_path")
+    end
   end
 
   def play_validations

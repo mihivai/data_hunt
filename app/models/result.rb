@@ -3,20 +3,23 @@ class Result < ApplicationRecord
   EMPLOYEE_EMAIL = "@havior.co"
   DB_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT_ERXgcdZcXKGMgLgCAArtlz_CN4j9730lPb4tAvnaljXNAfBeHlZWNXk0eSApeyZini_S5YnCAPuV/pubhtml?widget=true&amp;headers=false"
   # "https://docs.google.com/spreadsheets/d/e/2PACX-1vQw8FKimNKpoWzaoyowE9yVYf2_RRf5A5oTVJQNIFuNDzsVsv01yuEVY-_LTUwYeSZ6UWfHYzctxzeV/pubhtml?widget=true&amp;headers=false"
-  EMPLOYEE_PWDS = [
-    "123456",
-    "123456789",
-    "azerty",
-    "qwerty",
-    "1234561",
-    "loulou",
-    "doudou",
-    "marseille",
-    "azertyuiop",
-    "12345678",
-    "password",
-    "soleil"
-  ]
+  # EMPLOYEE_PWDS = [
+  #   "123456",
+  #   "123456789",
+  #   "azerty",
+  #   "qwerty",
+  #   "1234561",
+  #   "loulou",
+  #   "doudou",
+  #   "marseille",
+  #   "azertyuiop",
+  #   "12345678",
+  #   "password",
+  #   "soleil"
+  # ]
+
+  EMPLOYEE_PWD = "qwerty"
+
   DB_PASSWORD = "password"
   PLACE = "bedroom".parameterize
   
@@ -53,7 +56,7 @@ class Result < ApplicationRecord
 
   def employee_pwd_validation
     # if !employee_pwd.present? || !EMPLOYEE_PWDS.include?(employee_pwd)
-    if employee_pwd != "qwerty"
+    if employee_pwd != EMPLOYEE_PWD
       errors.add(:employee_pwd, "Ce n'est pas le bon mot de passe.")
     end
   end
@@ -65,8 +68,8 @@ class Result < ApplicationRecord
   end
 
   def place_validation
-    if !place.present? || !place.include?(PLACE)
-      errors.add(:place, "Ce n'est pas le bon site")
+    if !place.present? || !place.downcase.include?(PLACE)
+      errors.add(:place, "Ce n'est pas la bonne pièce")
     end
   end
 
